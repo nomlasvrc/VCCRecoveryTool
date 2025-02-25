@@ -12,6 +12,7 @@ PCが突然死するなどしてVRChat Creator Companion(VCC)が必要とする`
 ## 仕組みを教えて
 あなたがアバターやワールドを作成・改変したUnity Projectsが初期フォルダの`%localappdata%\VRChatProjects`にあると**仮定して**、その中にあるフォルダをProjectsとしてVCCの`settings.json`に登録します。<br>
 変更している場合や、VRChatProjectsにUnityProjectではないフォルダが含まれていた場合も確認の上処理を行いますので、普段使いするツールではありません。<br>
+**VCCは親フォルダーを`Add Exsisting Project`するとその中にあるフォルダをProjectsとして追加します。本当にこのツールで行うべきか十分に考えたうえで使用してください。**
 
 ## どうやって使うの？
 1. Pythonをインストール済みの方は`recovery.py`を、インストールしていない方や、よく分からない方は`recovery.exe`をダウンロードして起動
