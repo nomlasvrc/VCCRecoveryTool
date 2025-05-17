@@ -1,5 +1,7 @@
 # VCC Recovery Tool
 
+## VCCは親フォルダーを`Add Exsisting Project`すると、その中にあるフォルダをProjectsとして追加します。このツールを使うメリットはありません。今後このリポジトリは更新されず、サポートも行われません。
+
 ## これは何？
 PCが突然死するなどしてVRChat Creator Companion(VCC)が必要とする`settings.json`ファイルが壊れてしまったときにProjectsの復元をサポートするツールです。
 
