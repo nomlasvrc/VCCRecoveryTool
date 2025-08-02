@@ -1,15 +1,11 @@
 # VCC Recovery Tool
 
-## VCCは親フォルダーを`Add Exsisting Project`すると、その中にあるフォルダをProjectsとして追加します。このツールを使うメリットはありません。今後このリポジトリは更新されず、サポートも行われません。
-
 ## これは何？
 PCが突然死するなどしてVRChat Creator Companion(VCC)が必要とする`settings.json`ファイルが壊れてしまったときにProjectsの復元をサポートするツールです。
 
 ## いつ使うの？
 ![Projectが無いVCCのスクリーンショット](Docs/screenshot.png)
 こうなったときです。<br>
-（このツールはVCCに登録されているProjectsを検出するため、既にいくつかProjectsが登録されていても正しく動作します。）<br>
-うっかりProjectをRemove(削除)してしまった場合も使えると思います。（未検証）
 
 ## 仕組みを教えて
 あなたがアバターやワールドを作成・改変したUnity Projectsが初期フォルダの`%localappdata%\VRChatProjects`にあると**仮定して**、その中にあるフォルダをProjectsとしてVCCの`settings.json`に登録します。<br>
@@ -24,6 +20,20 @@ PCが突然死するなどしてVRChat Creator Companion(VCC)が必要とする`
 ### 注意点
  - 追加候補はよく確認してください。UnityProject以外が含まれている可能性があります。
  - お気に入りや最終更新日時の情報が失われる不具合を確認しています。
+
+## トラブルシューティング
+> [!NOTE]
+> バックアップや、古いPCなどから、Project自体は救出できたが、Project一覧には表示されない場合、VCCで親フォルダーを`Add Exsisting Project`してください。<br>
+### 終了コード
+|コード|理由|対処法|
+|---|---|---|
+|01|settings.jsonの検出失敗|他のユーザーや、バックアップなどの、`[ユーザー名]\AppData\Local\VRChatCreatorCompanion`にsettings.jsonとvcc.liteDbがないか確認してください。もしあれば、これらのファイルを`[自分のユーザー名]\AppData\Local\VRChatCreatorCompanion`に配置することで、Project一覧が復活するはずです。|
+|02|settings.jsonが壊れている|手動で修正するか、VCCを開いて初期化してからこのツールを再度起動（非推奨）してください。|
+|10|VRChatProjectsフォルダの検出失敗|管理者権限で再度実行してみてください。|
+|20|Projectの検出失敗|`VRChatProjects`フォルダが空です。このツールでは何もできません。バックアップが無いかなどを確認してみてください。|
+|30|Project登録済み|検出したProjectは既に全て登録されています。（これは開発者想定外のエラーです。）|
+|00|ユーザーがキャンセル|-|
+|99|その他のエラー|エラーメッセージを確認し、必要に応じてGitHubのIssueに報告してください。|
 
 ## ライセンスを教えて
 MIT Licenseです。[ここ](LICENSE)に書いてあります。<br>
